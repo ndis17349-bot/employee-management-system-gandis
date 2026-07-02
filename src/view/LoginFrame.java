@@ -110,6 +110,13 @@ public class LoginFrame extends JFrame {
                     "Login Success"
             );
 
+            new EmployeeFrame()
+                    .setVisible(
+                            true
+                    );
+
+            dispose();
+
         } else {
 
             JOptionPane.showMessageDialog(
