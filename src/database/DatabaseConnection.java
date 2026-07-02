@@ -16,23 +16,32 @@ public class DatabaseConnection {
 
     public static Connection getConnection() {
 
+        Connection connection = null;
+
         try {
 
-            return DriverManager.getConnection(
-                    URL,
-                    USER,
-                    PASSWORD
+            Class.forName(
+                    "com.mysql.cj.jdbc.Driver"
+            );
+
+            connection =
+                    DriverManager.getConnection(
+                            URL,
+                            USER,
+                            PASSWORD
+                    );
+
+            System.out.println(
+                    "Database Connected"
             );
 
         } catch (Exception e) {
 
-            System.out.println(
-                    "Connection Failed: "
-                    + e.getMessage()
-            );
+            e.printStackTrace();
 
-            return null;
         }
+
+        return connection;
 
     }
 
